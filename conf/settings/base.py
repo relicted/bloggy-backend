@@ -10,32 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+import pathlib
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = pathlib.Path(__file__).parents[2]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'h*)_z(yvium-v+52ihf5qk29xk-ia6$(t3f#h+)-1qg^h@%bks'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
 
-    'app.posts.apps.PostsConfig',    # requirements
-    'app.accounts.apps.AccountsConfig',    # requirements
+    'app.posts.apps.PostsConfig',
+    'app.accounts.apps.AccountsConfig',
+
+
+    # requirements
     'rest_framework',
     'rest_framework.authtoken',
-    'django_extensions',
-    'corsheaders',
     # default
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,7 +41,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,9 +55,7 @@ ROOT_URLCONF = 'conf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
