@@ -125,7 +125,7 @@ EMAIL_HOST = 'smtp.office365.com'
 EMAIL_HOST_USER = 'support@clicknclose.com'
 EMAIL_HOST_PASSWORD = 'Schm1dtMC'
 EMAIL_PORT = 587
-'privet'
+'privet' 'master'
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_HEADERS = [
