@@ -12,8 +12,13 @@ class Login(APIView):
 
     @staticmethod
     def post(request):
+        errors = {}
+        try:
+            user = User.objects.get(email__iexact=request.data.get('email'))
 
-        user = get_object_or_404(User, email__iexact=request.data.get('email'))
+        except User.DoesNotExist:
+            errors['email'] = ['User does not exist!']
+            return Response(data=errors, status=status.HTTP_400_BAD_REQUEST)
 
         user = authenticate(username=user.email,
                             password=request.data.get('password'))
@@ -21,4 +26,5 @@ class Login(APIView):
             serializer = UserLoginSerializer(user)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        errors['password'] = ['Wrong password!']
+        return Response(data=errors, status=status.HTTP_400_BAD_REQUEST)
