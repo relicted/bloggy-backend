@@ -25,7 +25,8 @@ SECRET_KEY = 'h*)_z(yvium-v+52ihf5qk29xk-ia6$(t3f#h+)-1qg^h@%bks'
 INSTALLED_APPS = [
 
     'app.accounts.apps.AccountsConfig',
-    'app.friendship.apps.FriendshipConfig',
+    'app.posts.apps.PostsConfig',
+    'app.messages.apps.MessagesConfig',
 
 
     # requirements
@@ -114,8 +115,6 @@ EMAIL_HOST_USER = 'support@clicknclose.com'
 EMAIL_HOST_PASSWORD = 'Schm1dtMC'
 EMAIL_PORT = 587
 
-'NEWB BRANCH' + 'MASTER BRANCH'
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_HEADERS = [
@@ -135,5 +134,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 1
 }

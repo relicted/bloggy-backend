@@ -2,7 +2,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from django.contrib.auth import authenticate
-from django.shortcuts import get_object_or_404
 
 from app.accounts.models.user import User
 from app.accounts.serializers.user import UserLoginSerializer
@@ -28,3 +27,4 @@ class Login(APIView):
 
         errors['password'] = ['Wrong password!']
         return Response(data=errors, status=status.HTTP_400_BAD_REQUEST)
+

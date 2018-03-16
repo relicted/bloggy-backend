@@ -7,7 +7,6 @@ from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     path('auth/', drf_views.obtain_auth_token, name='auth'),
     path('', include('app.accounts.urls')),
-    path('', include('app.friendship.urls')),
     path('', include('app.posts.urls', namespace='posts')),
     path('', include_docs_urls(title='Bloggy API'))
 

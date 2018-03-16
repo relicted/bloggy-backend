@@ -1,0 +1,1 @@
+from app.posts.views.post import PostList
