@@ -110,9 +110,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.office365.com'
-EMAIL_HOST_USER = 'support@clicknclose.com'
-EMAIL_HOST_PASSWORD = 'Schm1dtMC'
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -136,5 +136,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 1
+    'PAGE_SIZE': 15
 }

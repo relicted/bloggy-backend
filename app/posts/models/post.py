@@ -11,3 +11,4 @@ class Post(TimeStampModel):
     title = models.CharField(max_length=255)
     body = models.TextField()
     image = models.ImageField(blank=True)
+

@@ -8,6 +8,7 @@ class WebSocketView(web.View):
         self.app = self.request.app
 
     async def get(self):
+
         ws = web.WebSocketResponse()
         await ws.prepare(self.request)
 
